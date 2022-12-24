@@ -89,7 +89,6 @@ class ScreenUtils @Inject constructor(private val context: Context) {
         }
         remoteRecording = null
         try {
-            statusBarService.setBlockedGesturalNavigation(false)
             isGestureLocked = false
         } catch (e: RemoteException) {
             Log.e("GameSpace:ScreenUtils", "Failed to toggle gesture off")
@@ -120,7 +119,6 @@ class ScreenUtils @Inject constructor(private val context: Context) {
         get() = isGestureLocked
         set(enable) {
             try {
-                statusBarService.setBlockedGesturalNavigation(enable)
                 field = enable
                 isGestureLocked = enable
             } catch (e: RemoteException) {
